@@ -151,9 +151,13 @@ width: 30%;
         width: 80%; /* Adjust image size for smaller screens */
         margin-bottom: 20px;
     }
+    .destination-img{
+
+        /* border: 1px solid red !important; */
+        width: 80% !important;
+    }
 
     .destination-info {
-        /* border: 1px solid red !important; */
         width: 90%; /* Adjust info width */
         text-align: center;
         font-size: 14px;

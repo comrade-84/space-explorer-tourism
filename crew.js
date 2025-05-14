@@ -11,6 +11,39 @@ const crewFourEl = document.querySelector('#crew-4');
 
 
 
+const homeEl = document.querySelector('.home');
+const destinationEl = document.querySelector('.destination');
+const crewEl = document.querySelector('.crew');
+const technologyEl = document.querySelector('.tech');
+
+
+
+//  function for loading spinner and redirection
+const addLoadingAndRedirect = (element, targetUrl) => {
+    
+    element.addEventListener('click', function (e) {
+        e.preventDefault();
+        element.innerHTML = `
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border bg-light " role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        `;
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 1000); 
+    });
+};
+
+
+
+
+// Apply the function to each element
+addLoadingAndRedirect(homeEl, '/index.html');
+addLoadingAndRedirect(destinationEl, '/destination.html');
+addLoadingAndRedirect(crewEl, '/crew.html');
+addLoadingAndRedirect(technologyEl, '/tech.html');
 
 
 
@@ -37,9 +70,34 @@ creImg.src = `${crewData[0].images.png}`;
 
 const switchDatas = function(index){
     roleEl.innerHTML = crewData[index].role;
+      roleEl.classList.remove('animate__backInLeft', 'animate__animated');
+    void roleEl.offsetWidth;
+    roleEl.classList.add('animate__backInLeft', 'animate__animated');
+
+
+
+
     nameEl.innerHTML = crewData[index].name;
+    nameEl.classList.remove('animate__backInLeft', 'animate__animated');
+    void nameEl.offsetWidth;
+    nameEl.classList.add('animate__backInLeft', 'animate__animated');
+
+
+
+
+
     nameInfoEl.innerHTML = crewData[index].bio;
+nameInfoEl.classList.remove('animate__backInLeft', 'animate__animated');
+    void nameInfoEl.offsetWidth;
+    nameInfoEl.classList.add('animate__backInLeft', 'animate__animated');
+
+
+
     creImg.src = `${crewData[index].images.png}`;
+
+    creImg.classList.remove('animate__backInRight', 'animate__animated');
+    void creImg.offsetWidth;
+    creImg.classList.add('animate__backInRight', 'animate__animated');
 }
 
 crewOneEl.addEventListener('click', () => switchDatas(0));

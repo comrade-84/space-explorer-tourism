@@ -1,6 +1,43 @@
 const desImg = document.querySelector('.destination-img');
 console.log(desImg);
 
+
+
+const homeEl = document.querySelector('.home');
+const destinationEl = document.querySelector('.destination');
+const crewEl = document.querySelector('.crew');
+const technologyEl = document.querySelector('.tech');
+
+
+
+//  function for loading spinner and redirection
+const addLoadingAndRedirect = (element, targetUrl) => {
+    
+    element.addEventListener('click', function (e) {
+        e.preventDefault();
+        element.innerHTML = `
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border bg-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        `;
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 1000); 
+    });
+};
+
+
+
+
+// Apply the function to each element
+addLoadingAndRedirect(homeEl, '/index.html');
+addLoadingAndRedirect(destinationEl, '/destination.html');
+addLoadingAndRedirect(crewEl, '/crew.html');
+addLoadingAndRedirect(technologyEl, '/tech.html');
+
+
 let datas;
 const miniNavs = document.querySelectorAll('.mini-nav');
 const moonTab = document.getElementById('moon');
@@ -22,10 +59,10 @@ const getData = async function () {
     
     miniNavs.forEach(nav => {
         nav.addEventListener('click', () => {
-            // Remove 'active' class from all navigation elements
+            
             miniNavs.forEach(navItem => navItem.classList.remove('active'));
 
-            // Add 'active' class to the clicked navigation element
+            
             nav.classList.add('active');
         });
     });
@@ -36,15 +73,40 @@ const getData = async function () {
     timeValue.innerHTML = destinationsData[0].travel;
     desImg.src = `${destinationsData[0].images.png}`;
 
+
+
+
+
     const updateContent = (index) => {
-        desTitle.innerHTML = destinationsData[index].name;
-        desInfo.innerHTML = destinationsData[index].description;
-        distanceValue.innerHTML = destinationsData[index].distance;
-        timeValue.innerHTML = destinationsData[index].travel;
-        desImg.classList.add('animate__bounceInDown');
-        desImg.src = destinationsData[index].images.png;
-        desCount.textContent =`0${index + 1}` ;
-    };
+    desTitle.innerHTML = destinationsData[index].name;
+    desTitle.classList.remove('animate__lightSpeedInRight', 'animate__animated');
+    void desTitle.offsetWidth;
+    desTitle.classList.add('animate__lightSpeedInRight', 'animate__animated');
+    desInfo.innerHTML = destinationsData[index].description;
+      desInfo.classList.remove('animate__zoomIn', 'animate__animated');
+    void desInfo.offsetWidth;
+    desInfo.classList.add('animate__zoomIn', 'animate__animated');
+    distanceValue.innerHTML = destinationsData[index].distance;
+      distanceValue.classList.remove('animate__lightSpeedInRight', 'animate__animated');
+    void distanceValue.offsetWidth;
+    distanceValue.classList.add('animate__lightSpeedInRight', 'animate__animated');
+  timeValue.classList.remove('animate__lightSpeedInRight', 'animate__animated');
+    void timeValue.offsetWidth;
+    timeValue.classList.add('animate__lightSpeedInRight', 'animate__animated');
+
+    timeValue.innerHTML = destinationsData[index].travel;
+    desImg.classList.remove('animate__animated', 'animate__fadeInLeft');
+
+    // Trigger reflow to restart the animation
+    void desImg.offsetWidth;
+
+
+    desImg.classList.add('animate__animated', 'animate__fadeInLeft');
+
+    desImg.src = destinationsData[index].images.png;
+    desCount.textContent = `0${index + 1}`;
+};
+    
 
     moonTab.addEventListener('click', () => updateContent(0));
     marsTab.addEventListener('click', () => updateContent(1));
@@ -69,4 +131,5 @@ closeIcon.addEventListener('click', () => {
     menuIcon.classList.remove('hidden');
     closeIcon.classList.add('hidden');
 })
+
 

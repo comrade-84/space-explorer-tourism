@@ -1,7 +1,53 @@
 const exploreLink = document.querySelector('.right');
 exploreLink.addEventListener('click', function () {
-    window.location.href = '/destination.html';
+    exploreLink.innerHTML = `
+    <div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+    `;
+    setTimeout( () => {window.location.href = '/destination.html'}, 2000);
+    
 });
+
+const homeEl = document.querySelector('.home');
+const destinationEl = document.querySelector('.destination');
+const crewEl = document.querySelector('.crew');
+const technologyEl = document.querySelector('.tech');
+
+
+
+//  function for loading spinner and redirection
+const addLoadingAndRedirect = (element, targetUrl) => {
+    
+    element.addEventListener('click', function (e) {
+        e.preventDefault();
+        element.innerHTML = `
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border bg-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        `;
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 1000);
+    });
+};
+
+
+
+
+// Apply the function to each element
+addLoadingAndRedirect(homeEl, '/index.html');
+addLoadingAndRedirect(destinationEl, '/destination.html');
+addLoadingAndRedirect(crewEl, '/crew.html');
+addLoadingAndRedirect(technologyEl, '/tech.html');
+
+
+
+
 
 const menuIcon = document.querySelector('.menu-icon');
 const closeIcon = document.querySelector('.icon-close');
