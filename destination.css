@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background:url(/assets/destination/background-destination-desktop.jpg);
+}
+.nav{
+    justify-content: space-between;
+    padding: 25px;
+    /* margin-bottom: 50px; */
+}
+.nav-links{
+width: 50%;
+gap: 40px;
+background:linear-gradient(to right, rgb(31, 30, 30), #1C273B);
+font-family: poppins;
+}
+.nav-links li{
+    list-style-type: none;
+    position: relative;
+}
+.nav-links li::after, .des-navs li::after{
+    content: "";
+    height: 0;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    /* margin-top: 10px; */
+    background-color: #fff;
+}
+.nav-links li:hover::after , .des-navs li:hover::after {
+    height: 3px;
+    transition:  0.3s ease-in-out;
+}
+.nav-links li.active::after, .des-navs li.active::after {
+    height: 3px;
+    /* transition:  0.3s ease-in-out; */
+}
+
+.nav-links li a{
+    font-weight: 200;
+    text-decoration: none ;
+    color: #fff;
+}
+
+
+.logo{
+    /* display: flex; */
+    position: relative;
+}
+.logo .line{
+    position: absolute;
+    top: 35%;
+    left: 140px;
+}
+.destination-data{
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #fff;
+}
+.destination-info{
+    width: 40%;
+}
+#destination-img{
+width: 30%;
+}
+#destination-img img{
+    width: 100%;
+}
+
+
+.des-navs{
+    display: flex;
+    /* border: 1px solid red; */
+    width: 60%;
+    text-transform: uppercase;
+    gap: 30px;
+    justify-content: center !important;
+}
+
+.des-navs li{
+    cursor: pointer;
+    position: relative;
+    list-style-type: none;
+}
+.des-title{
+    font-size: 65px;
+    text-transform: uppercase;
+}
+.des-distance-time{
+    width: 80%;
+    text-transform: uppercase;
+}
+.des-info{
+    line-height: 2;
+    opacity: 0.7 ;
+}
+.mini-nav{
+    opacity: 0.7;
+}
+.mini-nav:hover{
+    opacity: 1;
+}
+.des-overview{
+ margin-bottom: 150px;  
+ padding-left: 150px; 
+ color: #fff;
+}
+.des-num{
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 500px) {
+    .nav-links {
+        display: none !important; /* Hide the nav links by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: linear-gradient(to right, rgb(31, 30, 30), #1C273B);
+        width: 50%;
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex !important; /* Show the nav links when active */
+    }
+
+    .menu-icon {
+        display: block !important; 
+        cursor: pointer;
+    }
+
+    .destination-data {
+        flex-direction: column; 
+        width: 100%;
+        text-align: center;
+    }
+
+    #destination-img {
+        width: 80%; /* Adjust image size for smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .destination-info {
+        /* border: 1px solid red !important; */
+        width: 90%; /* Adjust info width */
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .des-overview{
+        margin-bottom: 70px;  
+        padding-left: 0px; 
+        text-align: center;
+        color: #fff;
+    }
+    .des-navs{
+        
+        /* border: 1px solid red; */
+        width: 100%;
+        text-transform: uppercase;
+        /* gap: 10px; */
+        margin-top: 40px;
+        justify-content: center !important;
+    }
+    .des-info{
+        width: 100% !important;
+        line-height: 2;
+        opacity: 0.7 ;
+    }
+    .des-distance-time{
+        width: 100%;
+        text-transform: uppercase;
+    }
+}
+
+.menu-icon {
+    display: none; /* Hide the menu icon by default */
+    width: 30px;
+    height: 30px;
+}
+
+.hidden{
+    display: none !important;
+}
+
+@media screen and (min-width:501px) and (max-width:768px) {
+    .nav-links{
+width: 80%;
+    }
+    .line{
+        opacity: 0;
+    }
+    .destination-data{
+        flex-direction: column;
+    }
+    .des-navs{
+        /* border: 1px solid red; */
+        width: 80%;
+        margin: 30px auto;
+    }
+    .destination-info{
+        /* border: 1px solid red; */
+        width: 100%;
+        text-align: center;
+    }
+    #destination-img{
+width: 50%;
+margin-bottom: 50px;
+}
+/* .destination-img img */
+.des-distance-time{
+    display: flex !important;
+    margin: 10px auto;
+    
+}
+.des-overview{
+        /* border: 1px solid red; */
+        margin-bottom: 40px;
+        padding-left: 30px;
+    }
+    
+}

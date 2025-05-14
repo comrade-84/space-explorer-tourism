@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background:url(/starter-code/assets/home/background-home-desktop.jpg);
+}
+.nav{
+    justify-content: space-between !important;
+    /* gap: 500px !important; */
+    padding: 25px;
+    margin-bottom: 150px;
+    /* position: relative; */
+}
+.nav-links{
+width: 50%;
+gap: 40px;
+background:linear-gradient(to right, rgb(31, 30, 30), #1C273B);
+font-family: poppins;
+}
+.nav-links li{
+    list-style-type: none;
+    position: relative;
+}
+.openimg{
+    display: none;
+}
+.nav-links li::after, .des-navs li::after{
+    content: "";
+    height: 0;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    /* margin-top: 10px; */
+    background-color: #fff;
+}
+.nav-links li:hover::after , .des-navs li:hover::after {
+    height: 3px;
+    transition:  0.3s ease-in-out;
+}
+.nav-links li.active::after, .des-navs li.active::after {
+    height: 3px;
+    /* transition:  0.3s ease-in-out; */
+}
+
+.nav-links li a{
+    font-weight: 200;
+    text-decoration: none ;
+    color: #fff;
+}
+/* .nav-links li.active{
+    background-color: red;
+} */
+.home-content{
+    justify-content: space-between;
+    width: 75%;
+    /* background-color: #1C273B; */
+    margin: 40px auto;
+}
+.home-content .left {
+   width: 50%;
+}
+.que{
+    text-transform: uppercase;
+    font-weight: 200;
+}
+.ans{
+    font-size: 65px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-family: Bellefair;
+}
+.message{
+    opacity: 0.5;
+}
+.home-content .right{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1C273B;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .3s;
+}
+.home-content .right:hover{
+    box-shadow: 3px 3px 7px 3px #fff;
+}
+.logo{
+    /* display: flex; */
+    position: relative;
+}
+.logo .line{
+    position: absolute;
+    top: 35%;
+    left: 140px;
+}
+
+@media screen and (max-width: 500px) {
+    .nav-links{
+        display: none !important; 
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: linear-gradient(to right, rgb(31, 30, 30), #1C273B);
+        width: 50%;
+        padding: 20px;
+        z-index: 1000;
+    }
+    .openimg{
+        display: block;
+    }
+    
+    .nav-links.active {
+        /* transition: all 2s; */
+        display: flex !important; /* Show the nav links when active */
+    }
+
+    .menu-icon {
+        display: inline-flex !important; /* Show the menu icon */
+        cursor: pointer;
+    }
+    .home-content{
+        display: block !important;
+        width: 90%;
+        justify-content: center !important;
+        margin: 30px auto;
+        /* border: 1px solid red; */
+    }
+    .home-content .left{
+        width: 90%;
+        text-align: center;
+        margin: 10px auto;
+    }
+    .home-content .right{
+        margin: 20px auto;
+    }
+}
+
+.menu-icon {
+    display: none; /* Hide the menu icon by default */
+    width: 30px;
+    height: 30px;
+}
+
+.margin{
+    margin-top: 250px !important;
+}
+.hidden{
+    display: none !important;
+}
+
+@media screen and (max-width:768px) and (min-width:501px) {
+    .line{
+        opacity:0;
+    }
+    .nav-links{
+        width: 80%;
+    }
+    .home-content{
+        flex-direction: column;
+        border: 1px solid red;
+        text-align: center;
+    }
+    .left{
+        width: 100% !important;
+        border: 1px solid rgb(161, 109, 109);
+    }
+    .right{
+        margin: 50px auto;
+    }
+    .que{
+        font-size: 25px;
+    }
+    .ans{
+        font-weight: 700;
+        letter-spacing: 18px;
+    }
+}
